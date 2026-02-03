@@ -79,24 +79,24 @@ export default function AdminDashboard() {
             {/* Main Content */}
             <main className="flex-1 min-w-0">
                 {/* Header */}
-                <header className="bg-white border-b px-8 py-4 flex items-center justify-between sticky top-0 z-30">
-                    <div className="flex items-center gap-4 flex-1">
-                        <h1 className="text-xl font-bold text-slate-900">SaaS 전용 데이터 인사이트 모드</h1>
-                        <span className="bg-blue-50 text-blue-600 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest border border-blue-100">Live View</span>
+                <header className="bg-white border-b px-4 md:px-8 py-4 flex items-center justify-between sticky top-0 z-30">
+                    <div className="flex items-center gap-2 md:gap-4 flex-1 min-w-0">
+                        <h1 className="text-base md:text-xl font-bold text-slate-900 truncate">SaaS 전용 데이터 인사이트</h1>
+                        <span className="shrink-0 bg-blue-50 text-blue-600 px-2 md:px-3 py-1 rounded-full text-[8px] md:text-[10px] font-black uppercase tracking-widest border border-blue-100 italic">Live</span>
                     </div>
-                    <div className="flex items-center gap-6">
-                        <div className="relative">
+                    <div className="flex items-center gap-3 md:gap-6">
+                        <div className="relative hidden md:block">
                             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
                             <input type="text" placeholder="검색어 입력..." className="pl-10 pr-4 py-2 bg-slate-100 rounded-lg text-sm border-none focus:ring-2 focus:ring-blue-500 w-64" />
                         </div>
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-2 shrink-0">
                             <div className="w-8 h-8 rounded-full bg-slate-200 border border-white shadow-sm overflow-hidden" />
-                            <span className="text-sm font-bold text-slate-700">관리자님</span>
+                            <span className="text-sm font-bold text-slate-700 hidden sm:inline">관리자님</span>
                         </div>
                     </div>
                 </header>
 
-                <div className="p-8 space-y-8 max-w-7xl mx-auto">
+                <div className="p-4 md:p-8 space-y-6 md:space-y-8 max-w-7xl mx-auto">
                     {/* Top Stats */}
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                         {[
@@ -196,22 +196,22 @@ export default function AdminDashboard() {
                             </div>
                             <button className="bg-white text-slate-900 px-4 py-2 rounded-lg text-xs font-bold hover:bg-slate-100 transition-all">전략 즉시 적용</button>
                         </div>
-                        <div className="p-0 overflow-x-auto">
-                            <table className="w-full text-left border-collapse">
+                        <div className="p-0 overflow-x-auto scrollbar-thin scrollbar-thumb-slate-200">
+                            <table className="w-full min-w-[700px] text-left border-collapse">
                                 <thead>
                                     <tr className="bg-slate-50">
-                                        <th className="px-8 py-4 text-xs font-bold text-slate-500 uppercase tracking-widest">시간대</th>
-                                        <th className="px-8 py-4 text-xs font-bold text-slate-500 uppercase tracking-widest">현재 가동률</th>
-                                        <th className="px-8 py-4 text-xs font-bold text-slate-500 uppercase tracking-widest">예상 가동률</th>
-                                        <th className="px-8 py-4 text-xs font-bold text-slate-500 uppercase tracking-widest">수익 최적화 권장안</th>
-                                        <th className="px-8 py-4 text-xs font-bold text-slate-500 uppercase tracking-widest text-right">상태</th>
+                                        <th className="px-5 md:px-8 py-4 text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-widest">시간대</th>
+                                        <th className="px-5 md:px-8 py-4 text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-widest">현재 가동률</th>
+                                        <th className="px-5 md:px-8 py-4 text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-widest">예상 가동률</th>
+                                        <th className="px-5 md:px-8 py-4 text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-widest">수익 최적화 권장안</th>
+                                        <th className="px-5 md:px-8 py-4 text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-widest text-right">상태</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {REVENUE_DATA.map((row, i) => (
                                         <tr key={i} className="border-b border-slate-50 hover:bg-slate-50 transition-colors">
-                                            <td className="px-8 py-6 font-bold text-slate-900">{row.time}</td>
-                                            <td className="px-8 py-6">
+                                            <td className="px-5 md:px-8 py-6 font-bold text-slate-900">{row.time}</td>
+                                            <td className="px-5 md:px-8 py-6">
                                                 <div className="flex items-center gap-3">
                                                     <div className="w-24 h-2 bg-slate-100 rounded-full overflow-hidden">
                                                         <div
@@ -225,10 +225,10 @@ export default function AdminDashboard() {
                                                     <span className="text-sm font-bold">{row.occupancy}%</span>
                                                 </div>
                                             </td>
-                                            <td className="px-8 py-6 text-sm text-slate-500 font-medium">{(row.occupancy + (i % 2 === 0 ? 5 : -3))}%</td>
-                                            <td className="px-8 py-6">
+                                            <td className="px-5 md:px-8 py-6 text-sm text-slate-500 font-medium">{(row.occupancy + (i % 2 === 0 ? 5 : -3))}%</td>
+                                            <td className="px-5 md:px-8 py-6">
                                                 <span className={cn(
-                                                    "px-3 py-1.5 rounded-lg text-xs font-bold border",
+                                                    "px-3 py-1.5 rounded-lg text-[11px] md:text-xs font-bold border",
                                                     row.recommendations.includes('할인')
                                                         ? "bg-blue-50 text-blue-600 border-blue-100"
                                                         : "bg-slate-50 text-slate-500 border-slate-100"
@@ -236,7 +236,7 @@ export default function AdminDashboard() {
                                                     {row.recommendations}
                                                 </span>
                                             </td>
-                                            <td className="px-8 py-6 text-right text-slate-300">
+                                            <td className="px-5 md:px-8 py-6 text-right text-slate-300">
                                                 {row.occupancy > 80 ? <ArrowUpRight size={18} /> : <ArrowDownRight size={18} />}
                                             </td>
                                         </tr>
