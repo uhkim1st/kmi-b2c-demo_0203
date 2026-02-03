@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col">
       {/* Hero Section */}
-      <section className="relative h-[60vh] flex flex-col items-center justify-center text-center px-4 overflow-hidden bg-white">
+      <section className="relative min-h-[75vh] flex flex-col items-center justify-center text-center px-4 py-20 overflow-hidden bg-white">
         {/* Animated Background Elements */}
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-20">
           <div className="absolute top-[-10%] right-[-10%] w-[400px] h-[400px] bg-blue-400 rounded-full blur-[100px]" />
